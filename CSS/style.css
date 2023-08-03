@@ -1,0 +1,133 @@
+/* Import */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+/* Variables */
+:root {
+  /* Colors */
+  --UNIVERSAL-FC: #ffffff;
+  --UNIVERSAL-BG-COLOR: #12171c;
+
+  /* Font family */
+  --UNIVERSAL-FF: "Poppins", sans-serif;
+
+  /* Font-size */
+  --UNUVERSAL-FS: 1rem;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* Utility */
+.no-wrap {
+  white-space: nowrap;
+}
+
+.offscreen {
+  position: absolute;
+  left: -100000px;
+}
+
+/* General */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--UNIVERSAL-FF);
+  color: var(--UNIVERSAL-FC);
+  background-color: var(--UNIVERSAL-BG-COLOR);
+  font-size: var(--UNUVERSAL-FS);
+}
+
+/* MAIN */
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  /* width: 560px;
+  max-width: calc(100% - 40px); */
+  width: clamp(10px, calc(100% - 40px), 860px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.section-fluid {
+  width: 100%;
+  position: relative;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  visibility: hidden;
+}
+
+.color-picker + label {
+  /* .color-picker:not(:checked) + label */
+  cursor: pointer;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  border: none;
+  overflow: hidden;
+  margin-right: 10px;
+  box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+  background-color: red;
+  z-index: 10;
+  background-position: center;
+  background-size: cover;
+  border: 3px solid transparent;
+  transition: all 200ms linear;
+}
+
+.color-picker:checked + label {
+  border-color: #43434343;
+  transform: scale(1.1);
+}
+
+label.color-1 {
+  margin-left: 40rem;
+  background-image: url("https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg?q=10&h=200");
+}
+
+label.color-2 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmehi7G_ZF1tczTkn_n2XoQ-7yy-VV4wDAYg&usqp=CAU");
+}
+
+label.color-3 {
+  background-image: url("https://cdn.pixabay.com/photo/2020/05/09/16/53/yellowish-5150422_1280.jpg");
+}
+
+.chair-img {
+  width: 500px;
+  height: 410px;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  display: inline-block;
+  background-image: url("https://e7.pngegg.com/pngimages/89/825/png-clipart-eames-lounge-chair-chaise-longue-couch-living-room-eaves-angle-furniture.png");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 9;
+  opacity: 1;
+}
