@@ -7,6 +7,10 @@
     <meta name="author" content="Shantanu Dutta" />
     <meta name="description" content="Chairs website" />
     <meta name="keywords" content="chair, Be-comfy, comfortable chair" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./CSS/style.css" />
     <title>Be-Comfy</title>
   </head>
@@ -18,19 +22,25 @@
           <h2>Telford wings</h2>
           <h4>$250 <span>$300</span></h4>
           <div class="section-fluid">
-            <input type="radio" name="desc-abt" id="desc" checked />
+            <input
+              type="radio"
+              name="desc-abt"
+              id="desc"
+              class="desc-btn"
+              checked
+            />
             <label for="desc">Description</label>
-            <input type="radio" name="desc-abt" id="abt" />
+            <input type="radio" name="desc-abt" id="abt" class="desc-btn" />
             <label for="abt">About</label>
 
-            <div class="desc toggle-1">
+            <div class="desc-sec toggle-1">
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Eveniet, eos!
               </p>
             </div>
 
-            <div class="abt toggle-2">
+            <div class="desc-sec toggle-2">
               <div class="section-inline">
                 <p><span>80</span>cm <br />Length</p>
               </div>
@@ -45,6 +55,7 @@
               </div>
             </div>
           </div>
+          <h5>Choose Color:</h5>
         </div>
         <input
           type="radio"
@@ -70,7 +81,9 @@
         <label for="color-3" class="color-3"></label>
 
         <div class="add-to-cart">
-          <a href="#" class="add-to-cart__button">Add to Cart</a>
+          <a href="#" class="add-to-cart__button">
+            <i class="ri-shopping-cart-line icon"></i> Add to Cart</a
+          >
         </div>
 
         <div class="chair-img chair-1"></div>

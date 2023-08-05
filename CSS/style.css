@@ -6,6 +6,9 @@
   /* Colors */
   --UNIVERSAL-FC: #ffffff;
   --UNIVERSAL-BG-COLOR: #12171c;
+  --BG-COLOR-PINK: linear-gradient(196deg, #f1a9a9, #e66767);
+  --BG-COLOR-BLACK: linear-gradient(196deg, #1a1414, #242222);
+  --BG-COLOR-BLUE: linear-gradient(196deg, #072e68, #0b7981);
 
   /* Font family */
   --UNIVERSAL-FF: "Poppins", sans-serif;
@@ -80,8 +83,8 @@ body {
   visibility: hidden;
 }
 
-.color-picker + label {
-  /* .color-picker:not(:checked) + label */
+.color-picker:checked + label,
+.color-picker:not(:checked) + label {
   cursor: pointer;
   position: relative;
   height: 40px;
@@ -100,34 +103,270 @@ body {
 }
 
 .color-picker:checked + label {
-  border-color: #43434343;
+  border-color: #000000;
   transform: scale(1.1);
 }
 
 label.color-1 {
-  margin-left: 40rem;
-  background-image: url("https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg?q=10&h=200");
+  margin-left: 567px;
+  background-image: url("../img/color1.jpg");
 }
 
 label.color-2 {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmehi7G_ZF1tczTkn_n2XoQ-7yy-VV4wDAYg&usqp=CAU");
+  background-image: url("../img/color2.jpg");
 }
 
 label.color-3 {
-  background-image: url("https://cdn.pixabay.com/photo/2020/05/09/16/53/yellowish-5150422_1280.jpg");
+  background-image: url("../img/color3.jpg");
 }
 
 .chair-img {
-  width: 500px;
   height: 410px;
+  width: 500px;
+  background-image: url("../img/chair1.png");
   position: absolute;
-  left: 0;
   top: 100px;
-  display: inline-block;
-  background-image: url("https://e7.pngegg.com/pngimages/89/825/png-clipart-eames-lounge-chair-chaise-longue-couch-living-room-eaves-angle-furniture.png");
+  left: 0;
+  transition: all 550ms linear;
+  transition-delay: 100ms;
+  background-position: center top;
   background-size: 100%;
-  background-position: center;
   background-repeat: no-repeat;
+  display: inline-block;
   z-index: 9;
+  opacity: 0;
+}
+
+#color-1:checked ~ .chair-img.chair-1 {
   opacity: 1;
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.chair-img.chair-2 {
+  background-image: url("../img/chair2.png");
+}
+#color-2:checked ~ .chair-img.chair-2 {
+  opacity: 1;
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+.chair-img.chair-3 {
+  background-image: url("../img/chair3.png");
+}
+#color-3:checked ~ .chair-img.chair-3 {
+  opacity: 1;
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0) rotate(-1deg);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0) rotate(2deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-3px, 0, 0) rotate(-3deg);
+  }
+  40%,
+  60% {
+    transform: translate3d(3px, 0, 0) rotate(3deg);
+  }
+}
+
+.back-color {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+  background-image: var(--BG-COLOR-PINK);
+  transition: all 250ms linear 300ms;
+}
+
+.back-color.back-color-2 {
+  background-image: var(--BG-COLOR-BLACK);
+  opacity: 0;
+}
+#color-2:checked ~ .back-color.back-color-2 {
+  opacity: 1;
+}
+
+.back-color.back-color-3 {
+  background-image: var(--BG-COLOR-BLUE);
+  opacity: 0;
+}
+#color-3:checked ~ .back-color.back-color-3 {
+  opacity: 1;
+}
+
+.info {
+  position: relative;
+  margin-left: 35rem;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+h4 span {
+  text-decoration: line-through;
+  font-size: 20px;
+  opacity: 0.6;
+  padding: 15px;
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.desc-btn:checked + label,
+.desc-btn:not(:checked) + label {
+  position: relative;
+  transition: all 200ms linear;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  color: #ffeba7;
+  font-weight: 18px;
+  line-height: 1.2;
+  color: var(--UNIVERSAL-FC);
+  margin-right: 25px;
+  opacity: 0.5;
+}
+
+.desc-btn:checked + label {
+  opacity: 1;
+}
+
+.desc-btn:not(:checked) + label:hover {
+  opacity: 0.8;
+}
+p {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.desc-sec {
+  padding-top: 20px 0 30px;
+  transition: all 250ms linear;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.desc-sec.toggle-2 {
+  position: relative;
+  top: -70px;
+  left: 0;
+}
+
+#desc:checked ~ .desc-sec.toggle-1 {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#abt:checked ~ .desc-sec.toggle-2 {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.section-inline {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+.section-inline p span {
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.add-to-cart {
+  position: relative;
+  font-weight: 500;
+  line-height-step: 2;
+  font-size: 14px;
+  height: 48px;
+  border-radius: 4px;
+  width: 210px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  top: 30px;
+  right: -34rem;
+  box-shadow: 0 6px 15px 0 rgba(16, 30, 112, 0.15);
+  transition: all 250ms linear;
+  text-decoration-skip: none;
+  z-index: 1;
+  background-color: #944852;
+}
+
+.add-to-cart__button {
+  text-decoration: none;
+  color: var(--UNIVERSAL-FC);
+  display: block;
+}
+
+.add-to-cart::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: -1;
+  background-color: #000000;
+  transform: scaleX(0) skew(0deg);
+  transform-origin: left;
+  transition: all 250ms 30ms ease;
+  /* opacity: 0; */
+}
+
+.icon {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#color-2:checked ~ .add-to-cart {
+  background-color: #252425;
+}
+#color-3:checked ~ .add-to-cart {
+  background-color: #29255e;
+}
+
+.add-to-cart:hover::before {
+  transform: scaleX(1) skew(45deg);
+}
+
+@media screen and (max-width: 548px) {
+  .container {
+    width: 100%;
+  }
 }
